@@ -1,0 +1,51 @@
+/* Media is easier to recognise than to read about: these two hovers put the full image on screen
+   without leaving the page it was hovered on. Both are Strapi's own markup - the popover it opens
+   over a media cell in the list view, and the carousel on a media field in an entry. */
+
+/* The list view preview is a tooltip whose whole content is the image - Strapi renders the media
+   cell as an Avatar with `preview` set, and that is what it puts in the portal. Matching the image
+   as the tooltip's own child is what keeps every other popover that merely happens to contain one -
+   a menu, a card, another plugin's - out of this. */
+body div[data-radix-popper-content-wrapper]:has(> [data-state] > img) {
+    transform: none !important;
+    left: 5vw !important;
+    top: 5vh !important;
+    border-radius: 10px;
+    width: 90vw;
+    height: 90vh;
+    background: rgba(0, 0, 0, 0.5);
+    min-width: inherit !important;
+}
+
+body div[data-radix-popper-content-wrapper]:has(> [data-state] > img) * {
+    border-radius: 0px !important;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+    pointer-events: none;
+}
+
+body [aria-roledescription="carousel"] {
+    display: block;
+}
+
+body [aria-roledescription="carousel"] > div:last-child {
+    position: relative;
+    bottom: -4px;
+}
+
+body [aria-roledescription="slide"] > img:hover {
+    position: fixed;
+    top: 5%;
+    bottom: 5%;
+    left: 5%;
+    right: 5%;
+    width: 90%;
+    height: 90%;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 0.5rem;
+    object-fit: contain;
+    z-index: 6;
+    padding: 1.25rem;
+}

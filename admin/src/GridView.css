@@ -1,0 +1,83 @@
+/* The card layout a collection list view is switched into, in place of Strapi's table, while the
+   body carries the grid-view class. GridView.tsx is what puts the class there. */
+
+body.grid-view div:has(> div > div table[role="grid"]) {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+}
+body.grid-view div:has(> table[role="grid"]) {
+    padding-inline-start: 0px;
+    padding-inline-end: 0px;
+}
+body.grid-view table[role="grid"] > thead/*,
+body.grid-view table[role="grid"] > tbody > tr > td:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)):not(:nth-child(4))*/ {
+    display: none;
+}
+body.grid-view table[role="grid"] > tbody > tr > td:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)) * {
+    font-size: 1.2rem;
+    line-height: 1.33;
+    color: rgb(102, 102, 135);
+}
+body.grid-view table[role="grid"] > tbody {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+body.grid-view table[role="grid"] > tbody > tr {
+    border: 1px solid #32324d;
+    background: #212134;
+    box-shadow: rgba(3, 3, 5, 0.2) 1px 1px 10px;
+    padding-bottom: 16px;
+}
+body.grid-view table[role="grid"] > tbody > tr > td {
+    display: block;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+body.grid-view table[role="grid"] > tbody > tr > td:has(img) {
+    padding: 0;
+    margin-bottom: 16px;
+    text-align: center;
+}
+body.grid-view table[role="grid"] > tbody > tr > td:has(img) > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 16.4rem;
+    width: 100%;
+    border-radius: 0;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+body.grid-view table[role="grid"] > tbody > tr > td:has(img) > span {
+    background: repeating-conic-gradient(#181826 0% 25%, transparent 0% 50%) 50% / 20px 20px;
+}
+body.grid-view table[role="grid"] > tbody > tr > td:has(img) img {
+    height: 100%;
+    width: auto;
+    border-radius: 0;
+    object-fit: contain;
+    object-position: center;
+}
+
+body.grid-view table[role="grid"] > tbody > tr > td button[role="checkbox"] {
+    margin: 10px 15px;
+}
+
+@media (min-width: 768px) {
+    body.grid-view table[role="grid"] > tbody {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media screen and (prefers-color-scheme: light) {
+    body.grid-view table[role="grid"] > tbody > tr {
+        background: rgb(255, 255, 255);
+        border-color: rgb(234, 234, 239);
+        box-shadow: rgba(33, 33, 52, 0.1) 0px 1px 4px;
+    }
+    body.grid-view table[role="grid"] > tbody > tr > td:has(img) > span {
+        background: repeating-conic-gradient(rgb(246, 246, 249) 0%, rgb(246, 246, 249) 25%, transparent 0%, transparent 50%) 50% center / 20px 20px;
+    }
+}

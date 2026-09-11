@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Grid view, half grid and half list">
+    <defs>
+        <clipPath id="tile">
+            <rect width="512" height="512" rx="96"/>
+        </clipPath>
+        <!-- The slash runs corner to corner along x + y = 512. Each half stops short of it - one at
+             498, the other at 526 - so the two icons leave a gap either side of the divide rather
+             than meeting as one broken shape. -->
+        <clipPath id="grid-half">
+            <polygon points="-128,-128 626,-128 -128,626"/>
+        </clipPath>
+        <clipPath id="list-half">
+            <polygon points="654,-128 654,654 -128,654"/>
+        </clipPath>
+    </defs>
+
+    <g clip-path="url(#tile)">
+        <rect width="512" height="512" fill="#4945FF"/>
+        <polygon points="512,0 512,512 0,512" fill="#FFFFFF"/>
+
+        <!-- The two icons the button itself shows, at one size, each nudged 16px clear of the
+             slash along its own diagonal. Sharing a centre exactly reads as one icon caught
+             mid-toggle, but leaves the list's top bar as a stub barely over the line. -->
+        <g clip-path="url(#grid-half)">
+            <path transform="translate(80 80) scale(10)" fill="#FFFFFF" d="M27 7v7.5a.5.5 0 0 1-.5.5H17V5.5a.5.5 0 0 1 .5-.5H25a2 2 0 0 1 2 2M14.5 5H7a2 2 0 0 0-2 2v7.5a.5.5 0 0 0 .5.5H15V5.5a.5.5 0 0 0-.5-.5m12 12H17v9.5a.5.5 0 0 0 .5.5H25a2 2 0 0 0 2-2v-7.5a.5.5 0 0 0-.5-.5M5 17.5V25a2 2 0 0 0 2 2h7.5a.5.5 0 0 0 .5-.5V17H5.5a.5.5 0 0 0-.5.5"/>
+        </g>
+        <g clip-path="url(#list-half)">
+            <path transform="translate(112 112) scale(10)" fill="#4945FF" d="M28.5 16a1.5 1.5 0 0 1-1.5 1.5H5a1.5 1.5 0 1 1 0-3h22a1.5 1.5 0 0 1 1.5 1.5M5 9.5h22a1.5 1.5 0 0 0 0-3H5a1.5 1.5 0 0 0 0 3m22 13H5a1.5 1.5 0 1 0 0 3h22a1.5 1.5 0 1 0 0-3"/>
+        </g>
+    </g>
+</svg>

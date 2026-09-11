@@ -1,0 +1,71 @@
+{
+  "name": "strapi-plugin-grid-view",
+  "version": "0.1.0",
+  "description": "A card grid for the Strapi content manager list view, similar to the Media Library. Plus full-size previews for the images in it.",
+  "keywords": [
+    "strapi",
+    "plugin",
+    "strapi-plugin",
+    "content-manager",
+    "list-view",
+    "grid",
+    "media",
+    "image-preview",
+    "admin"
+  ],
+  "license": "MIT",
+  "author": "Marcos Rego <web@marcosrego.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GITHUB-USER-HERE/strapi-plugin-grid-view.git"
+  },
+  "homepage": "https://github.com/GITHUB-USER-HERE/strapi-plugin-grid-view#readme",
+  "bugs": {
+    "url": "https://github.com/GITHUB-USER-HERE/strapi-plugin-grid-view/issues"
+  },
+  "type": "commonjs",
+  "exports": {
+    "./package.json": "./package.json",
+    "./strapi-admin": {
+      "types": "./dist/admin/src/index.d.ts",
+      "source": "./admin/src/index.ts",
+      "import": "./dist/admin/index.mjs",
+      "require": "./dist/admin/index.js",
+      "default": "./dist/admin/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "strapi-plugin build",
+    "watch": "strapi-plugin watch",
+    "watch:link": "strapi-plugin watch:link",
+    "verify": "strapi-plugin verify",
+    "test:ts": "tsc -p admin/tsconfig.json"
+  },
+  "devDependencies": {
+    "@strapi/design-system": "^2.0.0",
+    "@strapi/icons": "^2.0.0",
+    "@strapi/sdk-plugin": "^6.0.1",
+    "@strapi/strapi": "^5.51.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.3",
+    "typescript": "^5"
+  },
+  "peerDependencies": {
+    "@strapi/design-system": "^2.0.0",
+    "@strapi/icons": "^2.0.0",
+    "@strapi/strapi": "^5.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.0.0"
+  },
+  "strapi": {
+    "kind": "plugin",
+    "name": "grid-view",
+    "displayName": "Grid view",
+    "description": "Switch the list view between the table and a card grid, and see media at full size on hover."
+  }
+}

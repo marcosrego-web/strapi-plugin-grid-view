@@ -61,26 +61,19 @@ is nothing for you to import.
 The plugin is built with [@strapi/sdk-plugin](https://github.com/strapi/sdk-plugin).
 
 ```bash
-npx --package @strapi/sdk-plugin strapi-plugin build   # emits dist/, which the exports points at
-npx --package @strapi/sdk-plugin strapi-plugin watch   # rebuild on change
+yarn install
+yarn build          # emits dist/, which the exports field points at
+yarn watch          # rebuild on change
+yarn test:ts        # typecheck
 ```
 
-Built through `npx` on purpose while the plugin sits inside an app: a `node_modules` of its own
-would give the admin a second copy of React and react-router to resolve from, and hooks called
-against the wrong copy take the panel down. Consumers never hit this - devDependencies are not
-installed for them, and the peers resolve to the app's own.
+To try a change in a real Strapi app, `yarn watch:link` rebuilds on change and pushes the package
+through [yalc](https://github.com/wclr/yalc); on the app side, `yalc add strapi-plugin-grid-view`.
 
-To run it inside a Strapi app before publishing, keep the folder in the app's `src/plugins` and
-declare it in `config/plugins.ts` - both keys are required:
-
-```ts
-'grid-view': {
-  enabled: true,
-  resolve: './src/plugins/grid-view',
-},
-```
-
-`dist/` is what a local `resolve` loads, so `yarn build` has to have run before the app builds.
+`@strapi/design-system` and `@strapi/icons` are pinned rather than ranged: 2.2.4 ships a
+`dist/index.d.ts` that imports its own `src/`, which isn't in the tarball, and TypeScript then reads
+every export of the package as missing. Only the published types are affected, not the runtime API,
+so the peer ranges stay open.
 
 ## Publishing
 

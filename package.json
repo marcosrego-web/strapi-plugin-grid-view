@@ -17,11 +17,11 @@
   "author": "Marcos Rego <web@marcosrego.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GITHUB-USER-HERE/strapi-plugin-grid-view.git"
+    "url": "git+https://github.com/marcosrego-web/strapi-plugin-grid-view.git"
   },
-  "homepage": "https://github.com/GITHUB-USER-HERE/strapi-plugin-grid-view#readme",
+  "homepage": "https://github.com/marcosrego-web/strapi-plugin-grid-view#readme",
   "bugs": {
-    "url": "https://github.com/GITHUB-USER-HERE/strapi-plugin-grid-view/issues"
+    "url": "https://github.com/marcosrego-web/strapi-plugin-grid-view/issues"
   },
   "type": "commonjs",
   "exports": {
@@ -45,8 +45,8 @@
     "test:ts": "tsc -p admin/tsconfig.json"
   },
   "devDependencies": {
-    "@strapi/design-system": "^2.0.0",
-    "@strapi/icons": "^2.0.0",
+    "@strapi/design-system": "2.2.3",
+    "@strapi/icons": "2.2.3",
     "@strapi/sdk-plugin": "^6.0.1",
     "@strapi/strapi": "^5.51.2",
     "react": "^18.3.1",

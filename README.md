@@ -8,7 +8,7 @@ Two ways to see media in the Strapi content manager.
 between Strapi's table and a card grid. The choice is remembered per collection type, per browser -
 a table of covers can stay a grid while a table of short fields stays a table.
 
-<img src="screenshot.svg" width="960" alt="">
+<img src="screenshot.png" width="960" alt="">
 
 **Image previews** put the full-size image on screen wherever Strapi already offers a look at one:
 the popover over a media cell in the list view, and the carousel on a media field in an entry. Both

@@ -1,31 +1,41 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Grid view, half grid and half list">
     <defs>
         <clipPath id="tile">
-            <rect width="512" height="512" rx="96"/>
+            <circle cx="256" cy="256" r="256"/>
         </clipPath>
-        <!-- The slash runs corner to corner along x + y = 512. Each half stops short of it - one at
-             498, the other at 526 - so the two icons leave a gap either side of the divide rather
-             than meeting as one broken shape. -->
-        <clipPath id="grid-half">
-            <polygon points="-128,-128 626,-128 -128,626"/>
-        </clipPath>
-        <clipPath id="list-half">
-            <polygon points="654,-128 654,654 -128,654"/>
-        </clipPath>
+        <linearGradient id="violet" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#7B79FF"/>
+            <stop offset="1" stop-color="#3A36F5"/>
+        </linearGradient>
+        <!-- Tinted at the rim, white towards the divide, so the circle keeps an edge on a white
+             page while the two halves still part cleanly down the middle. -->
+        <linearGradient id="pale" x1="1" y1="1" x2="0" y2="0">
+            <stop offset="0" stop-color="#E2E1FF"/>
+            <stop offset="1" stop-color="#FFFFFF"/>
+        </linearGradient>
     </defs>
 
+    <!-- The tile is a circle rather than a rounded square, and the two halves are parted by an
+         S-curve rather than a straight diagonal. Both ends of the curve still meet the circle on
+         the old corner-to-corner line, so the halves read the same way round as before. The pale
+         half overshoots the circle and is cut back by the clip, so the two fills meet the rim as
+         one edge instead of leaving a half-covered violet seam along it. -->
     <g clip-path="url(#tile)">
-        <rect width="512" height="512" fill="#4945FF"/>
-        <polygon points="512,0 512,512 0,512" fill="#FFFFFF"/>
+        <rect width="512" height="512" fill="url(#violet)"/>
+        <path d="M437 75 C366 244 146 268 75 437 L-60 602 L602 602 L602 -60 Z" fill="url(#pale)"/>
 
-        <!-- The two icons the button itself shows, at one size, each nudged 16px clear of the
-             slash along its own diagonal. Sharing a centre exactly reads as one icon caught
-             mid-toggle, but leaves the list's top bar as a stub barely over the line. -->
-        <g clip-path="url(#grid-half)">
-            <path transform="translate(80 80) scale(10)" fill="#FFFFFF" d="M27 7v7.5a.5.5 0 0 1-.5.5H17V5.5a.5.5 0 0 1 .5-.5H25a2 2 0 0 1 2 2M14.5 5H7a2 2 0 0 0-2 2v7.5a.5.5 0 0 0 .5.5H15V5.5a.5.5 0 0 0-.5-.5m12 12H17v9.5a.5.5 0 0 0 .5.5H25a2 2 0 0 0 2-2v-7.5a.5.5 0 0 0-.5-.5M5 17.5V25a2 2 0 0 0 2 2h7.5a.5.5 0 0 0 .5-.5V17H5.5a.5.5 0 0 0-.5.5"/>
+        <!-- Grid: four rounded tiles on the violet half. List: three rounded bars on the pale
+             half. Each sits at the visual centre of its own half, clear of the curve's bulge. -->
+        <g fill="#FFFFFF">
+            <rect x="100" y="100" width="58" height="58" rx="18"/>
+            <rect x="172" y="100" width="58" height="58" rx="18"/>
+            <rect x="100" y="172" width="58" height="58" rx="18"/>
+            <rect x="172" y="172" width="58" height="58" rx="18"/>
         </g>
-        <g clip-path="url(#list-half)">
-            <path transform="translate(112 112) scale(10)" fill="#4945FF" d="M28.5 16a1.5 1.5 0 0 1-1.5 1.5H5a1.5 1.5 0 1 1 0-3h22a1.5 1.5 0 0 1 1.5 1.5M5 9.5h22a1.5 1.5 0 0 0 0-3H5a1.5 1.5 0 0 0 0 3m22 13H5a1.5 1.5 0 1 0 0 3h22a1.5 1.5 0 1 0 0-3"/>
+        <g fill="#4945FF">
+            <rect x="282" y="282" width="130" height="26" rx="13"/>
+            <rect x="282" y="334" width="130" height="26" rx="13"/>
+            <rect x="282" y="386" width="130" height="26" rx="13"/>
         </g>
     </g>
 </svg>

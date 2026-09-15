@@ -5,8 +5,8 @@
 Two ways to see media in the Strapi content manager.
 
 **Grid view** adds a button to the list view, next to the view settings cog, that switches it
-between Strapi's table and a card grid. The choice is remembered per collection type, per browser -
-a table of covers can stay a grid while a table of short fields stays a table.
+between Strapi's list and a card grid. Just like it does with the Media Library. The choice is remembered per collection type, per browser -
+a table of covers can stay a grid while a table of short fields stays a list.
 
 <img src="screenshot.png" width="960" alt="">
 
@@ -71,22 +71,6 @@ yarn test:ts        # typecheck
 
 To try a change in a real Strapi app, `yarn watch:link` rebuilds on change and pushes the package
 through [yalc](https://github.com/wclr/yalc); on the app side, `yalc add strapi-plugin-grid-view`.
-
-`@strapi/design-system` and `@strapi/icons` are pinned rather than ranged: 2.2.4 ships a
-`dist/index.d.ts` that imports its own `src/`, which isn't in the tarball, and TypeScript then reads
-every export of the package as missing. Only the published types are affected, not the runtime API,
-so the peer ranges stay open.
-
-## Publishing
-
-```bash
-yarn build
-yarn verify         # checks package.json and that the exports exist in the tarball
-npm publish         # --access public on a scoped name
-```
-
-`files` ships `dist` only. Bump the version first: consumers resolve the admin entry through the
-`exports` map, so a broken build is a broken install.
 
 ## Licence
 

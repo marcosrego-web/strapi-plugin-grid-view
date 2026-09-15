@@ -97,7 +97,7 @@ export const GridView = () => {
     };
 
     return (
-        <IconButton label={gridView ? 'Table view' : 'Grid view'} onClick={toggle}>
+        <IconButton label={gridView ? 'List view' : 'Grid view'} onClick={toggle}>
             {gridView ? <List /> : <GridFour />}
         </IconButton>
     );

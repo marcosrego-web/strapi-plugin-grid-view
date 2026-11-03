@@ -35,6 +35,10 @@ body [aria-roledescription="carousel"] > div:last-child {
     bottom: -4px;
 }
 
+body [aria-roledescription="slide"] > img {
+    transition: 0s all;
+}
+
 body [aria-roledescription="slide"] > img:hover {
     position: fixed;
     top: 5%;
@@ -48,4 +52,6 @@ body [aria-roledescription="slide"] > img:hover {
     object-fit: contain;
     z-index: 6;
     padding: 1.25rem;
+    transition-delay: 1s;
+    transition-behavior: allow-discrete;
 }

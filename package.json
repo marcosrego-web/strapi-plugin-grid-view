@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-grid-view",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "A card grid for the Strapi content manager list view, similar to the Media Library. Plus full-size previews for the images in it.",
   "keywords": [
     "strapi",
@@ -38,6 +38,7 @@
     "dist"
   ],
   "scripts": {
+    "prepublishOnly": "npm run build",
     "build": "strapi-plugin build",
     "watch": "strapi-plugin watch",
     "watch:link": "strapi-plugin watch:link",

@@ -52,6 +52,6 @@ body [aria-roledescription="slide"] > img:hover {
     object-fit: contain;
     z-index: 6;
     padding: 1.25rem;
-    transition-delay: 1s;
+    transition-delay: 0.5s;
     transition-behavior: allow-discrete;
 }
